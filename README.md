@@ -1,12 +1,13 @@
+
 # Maeva's Book Tracker
 
-This project is a book tracking application for tracking the books read and their details such as title, author, pages read, and time spent reading.
+This project is a book tracking application for tracking the books read and their details such as title, author, pages read, time spent reading, and book cover images.
 
 ## Features
 
 - Track books read
-- Log book details including title, author, pages read, and time spent reading
-- View a list of books read with details
+- Log book details including title, author, pages read, time spent reading, and book cover images
+- View a list of books read with details and images
 
 ## Tech Stack
 
@@ -14,6 +15,7 @@ This project is a book tracking application for tracking the books read and thei
 - Backend: Node.js, Express
 - Database: MongoDB (MongoDB Atlas)
 - Deployment: Netlify (Frontend), Heroku (Backend)
+- Image Storage: Cloudinary
 
 ## Getting Started
 
@@ -21,6 +23,7 @@ This project is a book tracking application for tracking the books read and thei
 
 - Node.js and npm installed
 - MongoDB Atlas account
+- Cloudinary account
 
 ### Installation
 
@@ -45,10 +48,13 @@ cd backend
 npm install
 ```
 
-4. Create a `.env` file in the `backend` directory with your MongoDB URI:
+4. Create a `.env` file in the `backend` directory with your MongoDB and Cloudinary credentials:
 
 ```env
 MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-url>/<database>?retryWrites=true&w=majority&appName=<appname>
+CLOUDINARY_CLOUD_NAME=<your_cloud_name>
+CLOUDINARY_API_KEY=<your_api_key>
+CLOUDINARY_API_SECRET=<your_api_secret>
 ```
 
 ### Running the Application
@@ -82,10 +88,13 @@ npm start
 1. Push your code to GitHub.
 2. Create a new app on [Heroku](https://www.heroku.com/).
 3. Connect your GitHub repository to Heroku and deploy.
-4. Set your MongoDB URI as a config variable in Heroku.
+4. Set your MongoDB and Cloudinary environment variables in Heroku:
 
 ```bash
 heroku config:set MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-url>/<database>?retryWrites=true&w=majority&appName=<appname>
+heroku config:set CLOUDINARY_CLOUD_NAME=<your_cloud_name>
+heroku config:set CLOUDINARY_API_KEY=<your_api_key>
+heroku config:set CLOUDINARY_API_SECRET=<your_api_secret>
 ```
 
 ### Contributing
